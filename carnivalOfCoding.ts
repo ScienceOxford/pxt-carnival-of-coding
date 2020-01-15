@@ -11,7 +11,6 @@ namespace carnivalOfCoding {
      * @param state describe parameter here, eg: 0
      */
     //% block
-    //% state.defl=0
     //% state.min=0 state.max=1
     export function red(state: number) {
         pins.digitalWritePin(DigitalPin.P1, state)
@@ -22,7 +21,6 @@ namespace carnivalOfCoding {
      * @param state describe parameter here, eg: 0
      */
     //% block
-    //% state.defl=0
     //% state.min=0 state.max=1
     export function amber(state: number) {
         pins.digitalWritePin(DigitalPin.P2, state)
@@ -33,7 +31,6 @@ namespace carnivalOfCoding {
      * @param state describe parameter here, eg: 0
      */
     //% block
-    //% state.defl=0
     //% state.min=0 state.max=1
     export function green(state: number) {
         pins.digitalWritePin(DigitalPin.P8, state)
