@@ -1,7 +1,7 @@
 /**
  * Carnival of Coding blocks
- * URL of Github repo
- * URL of SO workshop listing on website
+ * http://scienceoxford.github.io/carnival-of-coding
+ * https://scienceoxford.com/schools/primary-schools/shows-workshops-primary/
  */
 
 enum LED {
