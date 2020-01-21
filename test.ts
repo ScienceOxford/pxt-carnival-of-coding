@@ -6,14 +6,14 @@ input.onButtonPressed(Button.A, function () {
     carnivalOfCoding.turn(LED.red, 1)
     carnivalOfCoding.turn(LED.amber, 1)
     carnivalOfCoding.turn(LED.green, 1)
-    carnivalOfCoding.motor(Motor.A, -300, 1000)
-    carnivalOfCoding.motor(Motor.B, -300, 1000)
+    carnivalOfCoding.motorAdvanced(Motor.A, -300, 1000)
+    carnivalOfCoding.motorAdvanced(Motor.B, -300, 1000)
     basic.showIcon(IconNames.Heart)
     carnivalOfCoding.turn(LED.red, 0)
     carnivalOfCoding.turn(LED.amber, 0)
     carnivalOfCoding.turn(LED.green, 0)
     basic.pause(200)
-    carnivalOfCoding.motor(Motor.AB, 300, 1000)
+    carnivalOfCoding.motorAdvanced(Motor.AB, 300, 1000)
 })
 
 input.onButtonPressed(Button.B, function () {
