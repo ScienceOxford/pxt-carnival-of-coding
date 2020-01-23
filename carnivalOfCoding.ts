@@ -37,7 +37,7 @@ namespace carnivalOfCoding {
      */
     //% block="set |%NAME| to %value"
     //% value.min=0 value.max=1
-    export function turn(colour: LED, value: number) {
+    export function lights(colour: LED, value: number) {
         if (colour == LED.red) {
             pins.digitalWritePin(DigitalPin.P1, value)
         } else if (colour == LED.amber) {
@@ -49,6 +49,44 @@ namespace carnivalOfCoding {
 
     /**
      * Turn a motor on for a set amount of time
+     * @param id choose 'Motor A' or 'Motor B', eg: A
+     * @param direction choose a direction, eg: forward
+     * @param value choose a speed, eg: medium
+     * @param duration choose how long the motor runs for in ms, eg: 1000
+     */
+    //% block="set motor %id in direction %direction to speed %value for duration: %duration"
+    //% duration.shadow=timePicker
+    export function motor(id: Motor, dir: Dir, value: Speed, duration: number) {
+        if (id == Motor.A && dir == Dir.forward) {
+            pins.analogWritePin(AnalogPin.P14, Math.abs(value))
+
+        } else if (id == Motor.B && dir == Dir.forward) {
+            pins.analogWritePin(AnalogPin.P13, Math.abs(value))
+
+        } else if (id == Motor.AB && dir == Dir.forward) {
+            pins.analogWritePin(AnalogPin.P14, Math.abs(value))
+            pins.analogWritePin(AnalogPin.P13, Math.abs(value))
+
+        } else if (id == Motor.A && dir == Dir.reverse) {
+            pins.analogWritePin(AnalogPin.P15, Math.abs(value))
+
+        } else if (id == Motor.B && dir == Dir.reverse) {
+            pins.analogWritePin(AnalogPin.P12, Math.abs(value))
+
+        } else if (id == Motor.AB && dir == Dir.reverse) {
+            pins.analogWritePin(AnalogPin.P15, Math.abs(value))
+            pins.analogWritePin(AnalogPin.P12, Math.abs(value))
+        }
+        basic.pause(duration)
+        pins.analogWritePin(AnalogPin.P12, 0)
+        pins.analogWritePin(AnalogPin.P13, 0)
+        pins.analogWritePin(AnalogPin.P14, 0)
+        pins.analogWritePin(AnalogPin.P15, 0)
+        basic.pause(100)
+    }
+
+    /**
+     * Turn a motor on for a set amount of time - extra functionality
      * @param id choose 'Motor A' or 'Motor B', eg: A
      * @param value choose a speed (larger number is faster) and direction (positive or negative), eg: 0
      * @param duration choose how long the motor runs for in ms, eg: 1000
@@ -87,46 +125,8 @@ namespace carnivalOfCoding {
     }
 
     /**
-     * Turn a motor on for a set amount of time
-     * @param id choose 'Motor A' or 'Motor B', eg: A
-     * @param direction choose a direction, eg: forward
-     * @param value choose a speed, eg: slow
-     * @param duration choose how long the motor runs for in ms, eg: 1000
-     */
-    //% block="set motor %id in direction %direction to speed %value for duration: %duration"
-    //% duration.shadow=timePicker
-    export function motor(id: Motor, dir: Dir, value: Speed, duration: number) {
-        if (id == Motor.A && dir == Dir.forward) {
-            pins.analogWritePin(AnalogPin.P14, Math.abs(value))
-
-        } else if (id == Motor.B && dir == Dir.forward) {
-            pins.analogWritePin(AnalogPin.P13, Math.abs(value))
-
-        } else if (id == Motor.AB && dir == Dir.forward) {
-            pins.analogWritePin(AnalogPin.P14, Math.abs(value))
-            pins.analogWritePin(AnalogPin.P13, Math.abs(value))
-
-        } else if (id == Motor.A && dir == Dir.reverse) {
-            pins.analogWritePin(AnalogPin.P15, Math.abs(value))
-
-        } else if (id == Motor.B && dir == Dir.reverse) {
-            pins.analogWritePin(AnalogPin.P12, Math.abs(value))
-
-        } else if (id == Motor.AB && dir == Dir.reverse) {
-            pins.analogWritePin(AnalogPin.P15, Math.abs(value))
-            pins.analogWritePin(AnalogPin.P12, Math.abs(value))
-        }
-        basic.pause(duration)
-        pins.analogWritePin(AnalogPin.P12, 0)
-        pins.analogWritePin(AnalogPin.P13, 0)
-        pins.analogWritePin(AnalogPin.P14, 0)
-        pins.analogWritePin(AnalogPin.P15, 0)
-        basic.pause(100)
-    }
-
-    /**
      * Turn the extra output on (1) or off(0)
-     * @param value controls whether the output is on or off, eg: 0
+     * @param value controls whether the output is on or off, eg: 1
      */
     //% block="set digital output to %value"
     //% value.min=0 value.max=1
