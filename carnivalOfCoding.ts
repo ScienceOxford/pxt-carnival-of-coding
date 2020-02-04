@@ -151,7 +151,7 @@ namespace carnivalOfCoding {
     }
 
     /**
-     * Test the outputs in this order: red, amber, green, speaker, motors forward, motors reverse
+     * Test the outputs in this order: red, amber, green, speaker, motors forward, motors reverse, extra output
      */
     //% block="run test"
     //% advanced=true
@@ -169,5 +169,8 @@ namespace carnivalOfCoding {
         stopMotors()
         motor(Motor.AB, Dir.forward, 500, 500)
         motor(Motor.AB, Dir.reverse, 500, 500)
+        outputDigital(1)
+        basic.pause(100)
+        outputDigital(0)
     }
 }
