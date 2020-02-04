@@ -34,11 +34,12 @@ namespace carnivalOfCoding {
      * Set the motor pins to outputs - run this at the start of your program
      */
     //% block="reset motors"
-    export function resetMotors() {
+    export function stopMotors() {
         pins.analogWritePin(AnalogPin.P12, 0)
         pins.analogWritePin(AnalogPin.P13, 0)
         pins.analogWritePin(AnalogPin.P14, 0)
         pins.analogWritePin(AnalogPin.P15, 0)
+        basic.pause(200)
     }
 
     /**
@@ -89,11 +90,7 @@ namespace carnivalOfCoding {
             pins.analogWritePin(AnalogPin.P12, Math.abs(value))
         }
         basic.pause(duration)
-        pins.analogWritePin(AnalogPin.P12, 0)
-        pins.analogWritePin(AnalogPin.P13, 0)
-        pins.analogWritePin(AnalogPin.P14, 0)
-        pins.analogWritePin(AnalogPin.P15, 0)
-        basic.pause(100)
+        stopMotors()
     }
 
     /**
@@ -128,11 +125,7 @@ namespace carnivalOfCoding {
             pins.analogWritePin(AnalogPin.P12, Math.abs(value))
         }
         basic.pause(duration)
-        pins.analogWritePin(AnalogPin.P12, 0)
-        pins.analogWritePin(AnalogPin.P13, 0)
-        pins.analogWritePin(AnalogPin.P14, 0)
-        pins.analogWritePin(AnalogPin.P15, 0)
-        basic.pause(100)
+        stopMotors()
     }
 
     /**
@@ -173,11 +166,8 @@ namespace carnivalOfCoding {
         basic.pause(100)
         lights(LED.green, 0)
         music.playTone(131, music.beat(BeatFraction.Half))
-        resetMotors()
-        basic.pause(100)
+        stopMotors()
         motor(Motor.AB, Dir.forward, 500, 500)
-        basic.pause(100)
         motor(Motor.AB, Dir.reverse, 500, 500)
-        basic.pause(100)
     }
 }
