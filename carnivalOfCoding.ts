@@ -156,7 +156,12 @@ namespace carnivalOfCoding {
     //% block="run test"
     //% advanced=true
     export function test() {
-        lights(LED.red, 1)
+        for (let i = LED.red; i < LED.green; i++) {
+            lights(i, 1)
+            basic.pause(100)
+            lights(i, 0)
+        }
+        /*lights(LED.red, 1)
         basic.pause(100)
         lights(LED.red, 0)
         lights(LED.amber, 1)
@@ -164,7 +169,7 @@ namespace carnivalOfCoding {
         lights(LED.amber, 0)
         lights(LED.green, 1)
         basic.pause(100)
-        lights(LED.green, 0)
+        lights(LED.green, 0)*/
         music.playTone(131, music.beat(BeatFraction.Half))
         stopMotors()
         motor(Motor.AB, Dir.forward, 500, 500)
