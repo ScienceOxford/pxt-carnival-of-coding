@@ -39,7 +39,7 @@ namespace carnivalOfCoding {
         pins.analogWritePin(AnalogPin.P13, 0)
         pins.analogWritePin(AnalogPin.P14, 0)
         pins.analogWritePin(AnalogPin.P15, 0)
-        basic.pause(100)
+        basic.pause(200)
     }
 
     /**
@@ -168,8 +168,6 @@ namespace carnivalOfCoding {
         music.playTone(131, music.beat(BeatFraction.Half))
         stopMotors()
         motor(Motor.AB, Dir.forward, 500, 500)
-        basic.pause(100)
         motor(Motor.AB, Dir.reverse, 500, 500)
-        basic.pause(100)
     }
 }
