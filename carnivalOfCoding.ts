@@ -31,18 +31,6 @@ enum Speed {
 //% weight=100 color=#CCCC00 icon="\u263A"
 namespace carnivalOfCoding {
     /**
-     * Set the motor pins to outputs - run this at the start of your program
-     */
-    //% block="reset motors"
-    export function stopMotors() {
-        pins.analogWritePin(AnalogPin.P12, 0)
-        pins.analogWritePin(AnalogPin.P13, 0)
-        pins.analogWritePin(AnalogPin.P14, 0)
-        pins.analogWritePin(AnalogPin.P15, 0)
-        basic.pause(200)
-    }
-
-    /**
      * Turn the traffic light LEDs on (1) or off (0)
      * @param colour chooses from red, amber, green, eg: red
      * @param value controls whether the LED is on or off, eg: 1
@@ -57,6 +45,18 @@ namespace carnivalOfCoding {
         } else if (colour == LED.green) {
             pins.digitalWritePin(DigitalPin.P8, value)
         }
+    }
+
+    /**
+     * Set the motor pins to outputs - run this at the start of your program
+     */
+    //% block="reset motors"
+    export function stopMotors() {
+        pins.analogWritePin(AnalogPin.P12, 0)
+        pins.analogWritePin(AnalogPin.P13, 0)
+        pins.analogWritePin(AnalogPin.P14, 0)
+        pins.analogWritePin(AnalogPin.P15, 0)
+        basic.pause(200)
     }
 
     /**
