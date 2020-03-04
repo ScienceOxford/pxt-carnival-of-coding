@@ -69,20 +69,20 @@ namespace carnivalOfCoding {
     //% block="set motor %id in direction %direction to speed %value for duration: %duration"
     //% duration.shadow=timePicker
     export function motor(id: Motor, dir: Dir, value: Speed, duration: number) {
-        if (id == Motor.A && dir == Dir.forward) {
+        if (id == Motor.B && dir == Dir.forward) {
             pins.analogWritePin(AnalogPin.P14, Math.abs(value))
 
-        } else if (id == Motor.B && dir == Dir.forward) {
+        } else if (id == Motor.A && dir == Dir.forward) {
             pins.analogWritePin(AnalogPin.P13, Math.abs(value))
 
         } else if (id == Motor.AB && dir == Dir.forward) {
             pins.analogWritePin(AnalogPin.P14, Math.abs(value))
             pins.analogWritePin(AnalogPin.P13, Math.abs(value))
 
-        } else if (id == Motor.A && dir == Dir.reverse) {
+        } else if (id == Motor.B && dir == Dir.reverse) {
             pins.analogWritePin(AnalogPin.P15, Math.abs(value))
 
-        } else if (id == Motor.B && dir == Dir.reverse) {
+        } else if (id == Motor.A && dir == Dir.reverse) {
             pins.analogWritePin(AnalogPin.P12, Math.abs(value))
 
         } else if (id == Motor.AB && dir == Dir.reverse) {
@@ -104,20 +104,20 @@ namespace carnivalOfCoding {
     //% duration.shadow=timePicker
     //% advanced=true
     export function motorAdvanced(id: Motor, value: number, duration: number) {
-        if (id == Motor.A && value > 0 && value <= 1023) {
+        if (id == Motor.B && value > 0 && value <= 1023) {
             pins.analogWritePin(AnalogPin.P14, Math.abs(value))
 
-        } else if (id == Motor.B && value > 0 && value <= 1023) {
+        } else if (id == Motor.A && value > 0 && value <= 1023) {
             pins.analogWritePin(AnalogPin.P13, Math.abs(value))
 
         } else if (id == Motor.AB && value > 0 && value <= 1023) {
             pins.analogWritePin(AnalogPin.P14, Math.abs(value))
             pins.analogWritePin(AnalogPin.P13, Math.abs(value))
 
-        } else if (id == Motor.A && value < 0 && value >= -1023) {
+        } else if (id == Motor.B && value < 0 && value >= -1023) {
             pins.analogWritePin(AnalogPin.P15, Math.abs(value))
 
-        } else if (id == Motor.B && value < 0 && value >= -1023) {
+        } else if (id == Motor.A && value < 0 && value >= -1023) {
             pins.analogWritePin(AnalogPin.P12, Math.abs(value))
 
         } else if (id == Motor.AB && value < 0 && value >= -1023) {
@@ -160,16 +160,8 @@ namespace carnivalOfCoding {
             lights(i, 1)
             basic.pause(100)
             lights(i, 0)
+            basic.pause(100)
         }
-        /*lights(LED.red, 1)
-        basic.pause(100)
-        lights(LED.red, 0)
-        lights(LED.amber, 1)
-        basic.pause(100)
-        lights(LED.amber, 0)
-        lights(LED.green, 1)
-        basic.pause(100)
-        lights(LED.green, 0)*/
         music.playTone(131, music.beat(BeatFraction.Half))
         stopMotors()
         motor(Motor.AB, Dir.forward, 500, 500)
