@@ -156,7 +156,7 @@ namespace carnivalOfCoding {
     //% block="run test"
     //% advanced=true
     export function test() {
-        for (let i = LED.red; i < LED.green; i++) {
+        for (let i = LED.red; i <= LED.green; i++) {
             lights(i, 1)
             basic.pause(100)
             lights(i, 0)
