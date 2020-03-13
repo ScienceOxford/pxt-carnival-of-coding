@@ -163,6 +163,7 @@ namespace carnivalOfCoding {
             basic.pause(100)
         }
         music.playTone(131, music.beat(BeatFraction.Half))
+        music.playTone(262, music.beat(BeatFraction.Half))
         stopMotors()
         motor(Motor.AB, Dir.forward, 500, 500)
         motor(Motor.AB, Dir.reverse, 500, 500)
