@@ -46,6 +46,24 @@ namespace carnivalOfCoding {
             pins.digitalWritePin(DigitalPin.P8, value)
         }
     }
+    
+    /**
+     * Turn the traffic light LEDs on (1) or off (0)
+     * @param colour chooses from red, amber, green, eg: red
+     * @param value controls whether the LED is on or off, eg: 1
+     */
+    //% block="set |%NAME| to analogue %value"
+    //% value.min=0 value.max=1023
+    //% advanced=true
+    export function lights(colour: LED, value: number) {
+        if (colour == LED.red) {
+            pins.analogWritePin(AnalogPin.P1, value)
+        } else if (colour == LED.amber) {
+            pins.analogWritePin(AnalogPin.P2, value)
+        } else if (colour == LED.green) {
+            pins.analogWritePin(AnalogPin.P8, value)
+        }
+    }
 
     /**
      * Set the motor pins to outputs - run this at the start of your program
