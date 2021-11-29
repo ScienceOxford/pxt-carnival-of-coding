@@ -1,10 +1,11 @@
 {
     "name": "pxt-carnival-of-coding",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "",
     "dependencies": {
         "core": "*",
-        "radio": "*"
+        "radio": "*",
+        "microphone": "*"
     },
     "files": [
         "README.md",
@@ -15,6 +16,12 @@
         "test.ts"
     ],
     "public": false,
-    "preferredEditor": "tsprj",
-    "installedVersion": "workspace:3bea15e9-6fe1-47b6-6eb1-4ad25db08101"
+    "targetVersions": {
+        "target": "4.0.16",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
 }
