@@ -55,7 +55,7 @@ namespace carnivalOfCoding {
     //% block="set |%NAME| to analogue %value"
     //% value.min=0 value.max=1023
     //% advanced=true
-    export function lights(colour: LED, value: number) {
+    export function lightsAnalog(colour: LED, value: number) {
         if (colour == LED.red) {
             pins.analogWritePin(AnalogPin.P1, value)
         } else if (colour == LED.amber) {
