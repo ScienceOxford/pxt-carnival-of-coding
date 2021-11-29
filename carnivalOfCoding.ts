@@ -48,9 +48,9 @@ namespace carnivalOfCoding {
     }
     
     /**
-     * Turn the traffic light LEDs on (1) or off (0)
+     * Turn the traffic light LEDs on to a chosen value
      * @param colour chooses from red, amber, green, eg: red
-     * @param value controls whether the LED is on or off, eg: 1
+     * @param value controls whether the LED is on or off, eg: 1023
      */
     //% block="set |%NAME| to analogue %value"
     //% value.min=0 value.max=1023
